@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUJJULUUU 🤍 Our Forever</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Playfair Display',serif;
+  color:#fff;
+  background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url("C:\Users\pinna\OneDrive\Desktop\LOVE\bg-heart.png") center/cover fixed;
+  overflow-x:hidden;
+}
+.hidden{display:none;}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+  text-align:center;
+}
+
+/* LOCK SCREEN */
+.lock{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.name{
+  font-family:'Great Vibes',cursive;
+  font-size:3.6rem;
+  animation:glow 2.5s infinite alternate;
+}
+@keyframes glow{
+  from{text-shadow:0 0 10px #ff9bbd;}
+  to{text-shadow:0 0 30px #ff4f87;}
+}
+button{
+  margin:12px;
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  background:#ff7aa2;
+  color:#fff;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+/* MESSAGE */
+.message{
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(8px);
+  border-radius:22px;
+  padding:40px;
+  line-height:1.9;
+  font-size:1.05rem;
+  text-align:left;
+}
+
+/* RING */
+#ring{
+  font-size:4rem;
+  text-align:center;
+  margin-top:30px;
+  animation:pulse 1s infinite alternate;
+}
+@keyframes pulse{
+  from{transform:scale(1);}
+  to{transform:scale(1.2);}
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+  margin-top:40px;
+}
+.gallery img{
+  width:100%;
+  border-radius:22px;
+  box-shadow:0 15px 35px rgba(0,0,0,.6);
+}
+
+/* ART */
+.art img{
+  max-width:280px;
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,.6);
+  box-shadow:0 18px 45px rgba(0,0,0,.7);
+  margin-top:20px;
+}
+
+/* COUNTDOWNS */
+#countdowns{
+  margin-top:40px;
+  font-size:1.2rem;
+  text-align:center;
+}
+
+/* FLOATING LOVE TEXT */
+#loveText{
+  position:fixed;
+  bottom:-80px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+  color:#ffd1e6;
+  opacity:0;
+  pointer-events:none;
+  z-index:1000;
+}
+@keyframes floatLove{
+  0%{bottom:-80px;opacity:0;}
+  20%{opacity:1;}
+  50%{bottom:50%;opacity:1;}
+  100%{bottom:110%;opacity:0;}
+}
+
+/* PETALS */
+.petal{
+  position:fixed;
+  top:-20px;
+  font-size:18px;
+  animation:fall 8s linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+
+/* FIREWORKS */
+canvas{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOCK -->
+<div class="lock" id="lock">
+  <div class="name">BUJJULUUU 🤍</div>
+  <p>Before you enter… answer from your heart</p>
+   <p class="question">
+    Will you be my Valentine? 💌
+  </p>
+  <button onclick="yes()">YES 💍</button>
+  <button onclick="no()">NO 🙈</button>
+  <p id="lockMsg"></p>
+</div>
+
+<!-- FLOATING LOVE -->
+<div id="loveText">I LOVE YOU BUJJULUUU 🤍</div>
+
+<!-- AUDIO -->
+<audio id="music" loop>
+  <source src="C:\Users\pinna\OneDrive\Desktop\LOVE\Nuvvunte Chaley.mp3">
+</audio>
+<audio id="voice">
+  <source src="your-voice-note.mp3">
+</audio>
+
+<canvas id="fireworks"></canvas>
+
+<!-- MAIN -->
+<div class="container hidden" id="main">
+
+  <!-- MESSAGE -->
+  <section class="message">
+    <p>
+      On <strong>November 30th, 2025</strong>, I made a quiet but powerful decision to walk beside you
+      for the rest of my life. Not just as a partner, but as your friend, your strength,
+      your family, your safe place someone who chooses you every single day,
+      through the gentle days and the stormy ones alike.
+    </p>
+
+    <p>
+      I believe love has no end. It is something we learn, grow into, and evolve with time.
+      It shapes our souls, guides us onto the right path, and moves us forward together in this journey.
+      My thoughts may sometimes feel old-school, like an old bear heart slow, deep, and rooted
+      but they come from a place that loves truly.
+    </p>
+
+    <p>
+      I look forward to sharing infinite memories with you moments that begin with young love,
+      mature into understanding, deepen through patience, and grow wiser with age.
+      From the excitement of first phases, to the calm of companionship,
+      to standing hand in hand even when words fade choosing you from love-age to old-age,
+      in every phase of love.
+    </p>
+
+    <p>
+      I know every day won’t be the same. I may not be the same person I was yesterday,
+      because we learn, we grow, we change.
+      But what will remain constant is my love and respect for you.
+      Sometimes it will be loud, sometimes silent.
+      Sometimes in laughter, sometimes in arguments
+      but always loving you, even from the quiet corners of my heart.
+    </p>
+
+    <p>
+      There is no such thing as perfect love.
+      We build our love from imperfections, allowing it to blossom into something real and meaningful.
+      Love is not a fantasy world; it is something we create together,
+      brick by brick, moment by moment.
+    </p>
+
+    <p>
+      Any words I use to describe love will always fall short, because love is infinite.
+      Love lives in understanding, in trust, in patience, in forgiveness,
+      in effort, in commitment, in complicated situations,
+      and in choosing each other again and again even when it’s hard.
+    </p>
+
+    <p>
+      And so, with all my heart, I choose you.
+      Not just for today, not just for Valentine’s Day,
+      but for every ordinary and extraordinary day of our lives.
+    </p>
+
+    <p style="text-align:center;">
+      <strong>
+        Today. Tomorrow.<br>
+        In every phase.<br>
+        For a lifetime. 🤍
+      </strong>
+    </p>
+
+    <div id="ring">💍</div>
+  </section>
+
+  <!-- PHOTOS -->
+  <section>
+    <h3>Moments I Love About You 📸</h3>
+    <div class="gallery">
+      <img src="C:\Users\pinna\OneDrive\Desktop\LOVE\truukw78unsoc5p5w5my.jpeg">
+      <img src="C:\Users\pinna\OneDrive\Desktop\LOVE\CAA46070-A5C9-4A05-B179-84A23A7AA6CC (1).JPG">
+      <img src="C:\Users\pinna\OneDrive\Desktop\LOVE\nusybbrgz3ryfryatx02.jpeg">
+
+    </div>
+  </section>
+
+  <!-- ART -->
+  <section class="art">
+  <h3>How My Heart Sees You ✨</h3>
+
+  <img src="C:\Users\pinna\OneDrive\Desktop\LOVE\ChatGPT Image Feb 10, 2026, 12_08_30 AM.png" alt="Hand-drawn portrait of BUJJULUUU">
+
+  <p class="heart-line">
+    Not just how you look… but how you feel to my heart.
+  </p>
+</section>
+
+
+  <!-- COUNTDOWNS -->
+  <section id="countdowns">
+    <p id="engagementCountdown"></p>
+    <p id="marriageCountdown"></p>
+  </section>
+
+</div>
+
+<script>
+const engagementDate = new Date("2026-02-22T00:00:00");
+const marriageDate   = new Date("2026-04-29T00:00:00");
+const fw=document.getElementById("fireworks");
+const ctx=fw.getContext("2d");
+fw.width=innerWidth;
+fw.height=innerHeight;
+
+function yes(){
+  document.getElementById("lock").style.display="none";
+  document.getElementById("main").classList.remove("hidden");
+  document.getElementById("music").play();
+  document.getElementById("voice").play();
+  petals();
+  fireworks();
+
+  const love=document.getElementById("loveText");
+  love.style.animation="none";
+  love.offsetHeight;
+  love.style.animation="floatLove 6s ease-in-out forwards";
+}
+
+function no(){
+  document.getElementById("lockMsg").innerText="Nice try 😌 You’re still my forever.";
+}
+
+function petals(){
+  setInterval(()=>{
+    let p=document.createElement("div");
+    p.className="petal";
+    p.innerHTML="🌸";
+    p.style.left=Math.random()*100+"vw";
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),8000);
+  },400);
+}
+
+function fireworks(){
+  for(let i=0;i<160;i++){
+    ctx.fillStyle=`hsl(${Math.random()*360},100%,70%)`;
+    ctx.beginPath();
+    ctx.arc(Math.random()*fw.width,Math.random()*fw.height,2,0,Math.PI*2);
+    ctx.fill();
+  }
+}
+
+function updateCountdown(){
+  const now=new Date();
+  const engDays=Math.max(0,Math.ceil((engagementDate-now)/(1000*60*60*24)));
+  const marDays=Math.max(0,Math.ceil((marriageDate-now)/(1000*60*60*24)));
+
+  document.getElementById("engagementCountdown").innerHTML=
+    `💍 Engagement in <strong>${engDays}</strong> days — February 22, 2026`;
+
+  document.getElementById("marriageCountdown").innerHTML=
+    `💒 Marriage in <strong>${marDays}</strong> days — April 29, 2026`;
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
