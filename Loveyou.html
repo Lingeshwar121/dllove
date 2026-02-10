@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUJJULUUU 🤍 Our Forever</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Playfair Display',serif;
+  color:#fff;
+  background:#0a0a0a;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* BACKGROUND */
+.bg-container{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+.bg-gradient{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(255,122,162,.15), transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(162,89,255,.15), transparent 50%),
+    linear-gradient(135deg,#1a0a1f,#0d0a1a,#0a1a1f);
+  animation:gradientShift 20s ease infinite;
+}
+@keyframes gradientShift{
+  0%,100%{filter:hue-rotate(0deg);}
+  50%{filter:hue-rotate(20deg);}
+}
+.heart-container{position:absolute;inset:0;}
+.floating-heart{
+  position:absolute;
+  font-size:20px;
+  opacity:0;
+  animation:floatHeart 15s linear infinite;
+}
+@keyframes floatHeart{
+  0%{transform:translateY(100vh);opacity:0;}
+  10%{opacity:.6;}
+  100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(6px);
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  padding:14px;
+  z-index:998;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  opacity:.9;
+}
+nav a:hover{opacity:1}
+
+/* LAYOUT */
+.hidden{display:none;}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
+section{
+  padding:120px 20px;
+  scroll-margin-top:90px;
+  text-align:center;
+}
+h2{
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+  margin-bottom:25px;
+}
+
+/* LOCK */
+.lock{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.name{
+  font-family:'Great Vibes',cursive;
+  font-size:3.6rem;
+}
+button{
+  margin:12px;
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  background:#ff7aa2;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* MESSAGE */
+.message{
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(8px);
+  border-radius:22px;
+  padding:40px;
+  line-height:1.9;
+  text-align:left;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+}
+.gallery img{
+  width:100%;
+  border-radius:22px;
+}
+
+/* ART */
+.art img{
+  max-width:280px;
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,.6);
+  margin-top:20px;
+}
+
+/* LOVE FLOAT */
+#loveText{
+  position:fixed;
+  bottom:-80px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+  color:#ffd1e6;
+  opacity:0;
+  pointer-events:none;
+  z-index:1000;
+}
+@keyframes floatLove{
+  0%{bottom:-80px;opacity:0;}
+  20%{opacity:1;}
+  50%{bottom:50%;}
+  100%{bottom:110%;opacity:0;}
+}
+
+/* PETALS */
+.petal{
+  position:fixed;
+  top:-20px;
+  animation:fall 8s linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(110vh);opacity:0;}
+}
+
+/* FIREWORKS */
+canvas{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg-container">
+  <div class="bg-gradient"></div>
+  <div class="heart-container" id="heartContainer"></div>
+</div>
+
+<!-- LOCK -->
+<div class="lock" id="lock">
+  <div class="name">BUJJULUUU 🤍</div>
+  <p>Will you be my Everyday Valentine? 💌</p>
+  <button onclick="yes()">YES 💖</button>
+  <button id="noBtn">NO 🙈</button>
+  <p id="lockMsg"></p>
+</div>
+
+<div id="loveText">I LOVE YOU BUJJULUUU 🤍</div>
+
+<audio id="music" loop src="C:\Users\pinna\OneDrive\Desktop\LOVE\02 - Naalona Pongenu - SenSongsMp3.co.mp3"></audio>
+<audio id="voice" src="your-voice-note.mp3"></audio>
+
+<canvas id="fireworks"></canvas>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#story">Our Story</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#moments">Moments</a>
+  <a href="#forever">Forever</a>
+</nav>
+
+<div class="container hidden" id="main">
+
+<section id="home" class="message">
+  <p>
+      On <strong>November 30th, 2025</strong>, I made a quiet but powerful decision to walk beside you
+      for the rest of my life. Not just as a partner, but as your friend, your strength,
+      your family, your safe place someone who chooses you every single day,
+      through the gentle days and the stormy ones alike.
+    </p>
+
+    <p>
+      I believe love has no end. It is something we learn, grow into, and evolve with time.
+      It shapes our souls, guides us onto the right path, and moves us forward together in this journey.
+      My thoughts may sometimes feel old-school, like an old bear heart slow, deep, and rooted 
+      but they come from a place that loves truly.
+    </p>
+
+    <p>
+      I look forward to sharing infinite memories with you moments that begin with young love,
+      mature into understanding, deepen through patience, and grow wiser with age.
+      From the excitement of first phases, to the calm of companionship,
+      to standing hand in hand even when words fade choosing you from love-age to old-age,
+      in every phase of love.
+    </p>
+
+    <p>
+      I know every day won’t be the same. I may not be the same person I was yesterday,
+      because we learn, we grow, we change.
+      But what will remain constant is my love and respect for you.
+      Sometimes it will be loud, sometimes silent.
+      Sometimes in laughter, sometimes in arguments
+      but always loving you, even from the quiet corners of my heart.
+    </p>
+
+    <p>
+      There is no such thing as perfect love.
+      We build our love from imperfections, allowing it to blossom into something real and meaningful.
+      Love is not a fantasy world; it is something we create together,
+      brick by brick, moment by moment.
+    </p>
+
+    <p>
+      Any words I use to describe love will always fall short, because love is infinite.
+      Love lives in understanding, in trust, in patience, in forgiveness,
+      in effort, in commitment, in complicated situations,
+      and in choosing each other again and again even when it’s hard.
+    </p>
+
+    <p>
+      And so, with all my heart, I choose you.
+      Not just for today, not just for Valentine’s Day,
+      but for every ordinary and extraordinary day of our lives.
+    </p>
+
+    <p style="text-align:center;">
+      <strong>
+        Today. Tomorrow.<br>
+        In every phase.<br>
+        For a lifetime. 🤍
+      </strong>
+    </p>
+</section>
+
+<section id="story">
+  <h2>Deepthi & Lingeshwar</h2>
+  <p>
+    Ours was never a loud beginning.  
+    It started quietly with conversations that lasted longer than expected,
+    small check ins during busy days, and a comfort that slowly grew without forcing itself.
+  </p>
+
+  <p>
+    She brought warmth into moments that felt ordinary.
+    He brought steadiness when things felt uncertain.
+    Somewhere in between jokes, disagreements, silences, and understanding,
+    we didn’t just fall in love we learned how to stay.
+  </p>
+
+  <p>
+    We grew through different phases learning each other’s moods,
+    respecting space, choosing patience over ego,
+    and holding on even when things weren’t perfect.
+    Love, for us, wasn’t about dramatic promises,
+    but about showing up again and again.
+  </p>
+
+  <p>
+    This is not just our story.
+    It’s the beginning of a lifetime we are building
+    slowly, honestly, and with love.
+  </p>
+
+</section>
+
+<section id="timeline">
+  <h2>Our Journey</h2>
+  <p>💍 Feb 22, 2026<br>💒 Apr 29, 2026</p>
+</section>
+
+<section id="moments">
+  <h2>Moments</h2>
+  <div class="gallery">
+    <img src="C:\Users\pinna\OneDrive\Desktop\LOVE\nusybbrgz3ryfryatx02.jpeg">
+    <img src="C:\Users\pinna\OneDrive\Desktop\LOVE\CAA46070-A5C9-4A05-B179-84A23A7AA6CC (1).JPG">
+    <img src="C:\Users\pinna\OneDrive\Desktop\LOVE\truukw78unsoc5p5w5my.jpeg">
+  </div>
+</section>
+
+<section id="forever">
+  <h2>Forever</h2>
+  <div class="art">
+    <img src="C:\Users\pinna\OneDrive\Desktop\LOVE\ChatGPT Image Feb 10, 2026, 12_08_30 AM.png">
+  </div>
+  <p class="heart-line">
+    <h2> Not just how you look… but how you feel to my heart.</h2>
+  </p>
+  <p id="engagementCountdown"></p>
+  <p id="marriageCountdown"></p>
+</section>
+
+</div>
+
+<script>
+const engagementDate=new Date("2026-02-22");
+const marriageDate=new Date("2026-04-29");
+
+function yes(){
+  document.getElementById("lock").style.display="none";
+  document.getElementById("main").classList.remove("hidden");
+  document.getElementById("music").play();
+  document.getElementById("voice").play();
+  floatingHearts();
+  fireworks();
+  const love=document.getElementById("loveText");
+  love.style.animation="floatLove 6s ease forwards";
+}
+
+function floatingHearts(){
+  const c=document.getElementById("heartContainer");
+  if(!c) return;
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="floating-heart";
+    h.innerHTML="💖";
+    h.style.left=Math.random()*100+"%";
+    c.appendChild(h);
+    setTimeout(()=>h.remove(),15000);
+  },2000);
+}
+
+/* NO BUTTON ESCAPE */
+const noBtn=document.getElementById("noBtn");
+const lock=document.getElementById("lock");
+lock.addEventListener("mousemove",()=>{
+  const x=Math.random()*300-150;
+  const y=Math.random()*200-100;
+  noBtn.style.transform=`translate(${x}px,${y}px)`;
+});
+
+/* FIREWORKS */
+const fw=document.getElementById("fireworks");
+const ctx=fw.getContext("2d");
+fw.width=innerWidth;fw.height=innerHeight;
+let particles=[];
+function fireworks(){
+  setInterval(()=>{
+    for(let i=0;i<40;i++){
+      particles.push({
+        x:Math.random()*fw.width,
+        y:Math.random()*fw.height/2,
+        vx:(Math.random()-.5)*6,
+        vy:(Math.random()-.5)*6,
+        a:1
+      });
+    }
+  },1500);
+}
+function animate(){
+  ctx.clearRect(0,0,fw.width,fw.height);
+  particles=particles.filter(p=>{
+    p.x+=p.vx;p.y+=p.vy;p.a-=0.02;
+    ctx.fillStyle=`rgba(255,122,162,${p.a})`;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,2,0,Math.PI*2);
+    ctx.fill();
+    return p.a>0;
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* COUNTDOWN */
+function updateCountdown(){
+  const now=new Date();
+  document.getElementById("engagementCountdown").innerHTML=
+    `💍 Engagement in <strong>${Math.ceil((engagementDate-now)/86400000)}</strong> days`;
+  document.getElementById("marriageCountdown").innerHTML=
+    `💒 Marriage in <strong>${Math.ceil((marriageDate-now)/86400000)}</strong> days`;
+}
+setInterval(updateCountdown,1000);updateCountdown();
+</script>
+
+</body>
+</html>
